@@ -5,9 +5,9 @@ function App() {
 
   return (
     <>
-    <Navbar/>
-    <div className="App">
-    </div>
+      <Navbar/>
+      <div className="App">
+      </div>
     </>
 
   )

@@ -1,24 +1,35 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
+import NavbarIcon from './NavbarIcon'
 import NavBarItem from './NavBarItem'
+import './NavBar.css'
 export default function Navbar() {
-    const [toggleMenu, setToggleMenu] = useState(false)
-    const toggleNav = () => {
-      setToggleMenu(!toggleMenu)
-    }
+
+  const [toggleMenu, setToggleMenu] = useState(false)
+  const [icon, setIcon] = useState(false)
+  const toggleNav = () => {
+    setToggleMenu(!toggleMenu)
+    setIcon(!icon)
+  }
   return (
     <header>
-      <nav className='navbar'>
-      {(toggleMenu) && (
+      <nav id='navbar' className='navbar'>
         <ul>
-          <NavBarItem/>
-          <NavBarItem/>
-          <NavBarItem/>
-          <NavBarItem/>
+          {(toggleMenu) && (
+            <>
+              <NavBarItem />
+              <NavBarItem />
+              <NavBarItem />
+              <NavBarItem />
+            </>
+          )}
         </ul>
-      )}
-      
+
       </nav>
-      <button onClick={toggleNav} className="btn">BTN</button>
+      <div className="button-container">
+        <button onClick={toggleNav} className="navbar-btn">
+           {toggleNav? <NavbarIcon key={`icon-${icon}`} icon={icon}/> : <p>AA</p>}
+        </button>
+      </div>
     </header>
   )
 }

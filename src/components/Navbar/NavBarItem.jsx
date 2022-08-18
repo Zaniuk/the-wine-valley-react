@@ -2,8 +2,10 @@ import React from 'react'
 
 export default function NavBarItem() {
   return (
-    <li>
-      <a href="#">Navbar item</a>
-    </li>
+    <a href="#">
+      <li className='navbar-item'>
+        <span>Navbar item</span>
+      </li>
+    </a>
   )
 }
